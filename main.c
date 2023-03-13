@@ -19,9 +19,10 @@ int	main(int argc, char **argv)
 	i = argc - 1;
 	while (i > 0)
 	{
-		push_a(atoi(argv[i]));
+		push_b(atoi(argv[i]));
 		i--;
 	}
-	sa();
-	display_a();
+	display_b();
+	rrb();
+	display_b();
 }

@@ -63,3 +63,16 @@ void	display_a(void)
 	}
 	printf("\n");
 }
+
+void	display_b(void)
+{
+	struct Node	*temp;
+
+	temp = top_b;
+	while (temp != NULL)
+	{
+		printf("%d ", temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
+}
