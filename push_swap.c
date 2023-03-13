@@ -12,50 +12,50 @@
 
 #include "push_swap.h"
 
-struct Node	*top_a = NULL;
-struct Node	*top_b = NULL;
+struct s_node	*g_top_a = NULL;
+struct s_node	*g_top_b = NULL;
 
 void	push_a(int value)
 {
-	struct Node	*newnode;
+	struct s_node	*newnode;
 
-	newnode = (struct Node *)malloc(sizeof(struct Node));
+	newnode = (struct s_node *)malloc(sizeof(struct s_node));
 	newnode->data = value;
 	newnode->next = NULL;
-	if (top_a == NULL)
+	if (g_top_a == NULL)
 	{
-		top_a = newnode;
+		g_top_a = newnode;
 	}
 	else
 	{
-		newnode->next = top_a;
-		top_a = newnode;
+		newnode->next = g_top_a;
+		g_top_a = newnode;
 	}
 }
 
 void	push_b(int value)
 {
-	struct Node	*newnode;
+	struct s_node	*newnode;
 
-	newnode = (struct Node *)malloc(sizeof(struct Node));
+	newnode = (struct s_node *)malloc(sizeof(struct s_node));
 	newnode->data = value;
 	newnode->next = NULL;
-	if (top_b == NULL)
+	if (g_top_b == NULL)
 	{
-		top_b = newnode;
+		g_top_b = newnode;
 	}
 	else
 	{
-		newnode->next = top_b;
-		top_b = newnode;
+		newnode->next = g_top_b;
+		g_top_b = newnode;
 	}
 }
 
 void	display_a(void)
 {
-	struct Node	*temp;
+	struct s_node	*temp;
 
-	temp = top_a;
+	temp = g_top_a;
 	while (temp != NULL)
 	{
 		printf("%d ", temp->data);
@@ -66,9 +66,9 @@ void	display_a(void)
 
 void	display_b(void)
 {
-	struct Node	*temp;
+	struct s_node	*temp;
 
-	temp = top_b;
+	temp = g_top_b;
 	while (temp != NULL)
 	{
 		printf("%d ", temp->data);

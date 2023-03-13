@@ -16,26 +16,13 @@ void	sa(void)
 {
 	int	temp;
 
-	if (top_a == NULL || top_a->next == NULL)
+	if (g_top_a == NULL || g_top_a->next == NULL)
 	{
 		return ;
 	}
-	temp = top_a->data;
-	top_a->data = top_a->next->data;
-	top_a->next->data = temp;
-}
-
-void	sb(void)
-{
-	int	temp;
-
-	if (top_b == NULL || top_b->next == NULL)
-	{
-		return ;
-	}
-	temp = top_b->data;
-	top_b->data = top_b->next->data;
-	top_b->next->data = temp;
+	temp = g_top_a->data;
+	g_top_a->data = g_top_a->next->data;
+	g_top_a->next->data = temp;
 }
 
 void	ss(void)
@@ -46,65 +33,33 @@ void	ss(void)
 
 void	pa(void)
 {
-	struct Node	*temp;
+	struct s_node	*temp;
 
-	if (top_b == NULL)
+	if (g_top_b == NULL)
 	{
 		return ;
 	}
-	temp = top_b;
-	top_b = top_b->next;
-	temp->next = top_a;
-	top_a = temp;
-}
-
-void	pb(void)
-{
-	struct Node	*temp;
-
-	if (top_a == NULL)
-	{
-		return ;
-	}
-	temp = top_a;
-	top_a = top_a->next;
-	temp->next = top_b;
-	top_b = temp;
+	temp = g_top_b;
+	g_top_b = g_top_b->next;
+	temp->next = g_top_a;
+	g_top_a = temp;
 }
 
 void	ra(void)
 {
-	struct Node	*last;
+	struct s_node	*last;
 
-	if (top_a == NULL || top_a->next == NULL)
+	if (g_top_a == NULL || g_top_a->next == NULL)
 	{
 		return ;
 	}
-	last = top_a;
+	last = g_top_a;
 	while (last->next != NULL)
 	{
 		last = last->next;
 	}
-	last->next = top_a;
-	top_a = top_a->next;
-	last->next->next = NULL;
-}
-
-void	rb(void)
-{
-	struct Node	*last;
-
-	if (top_b == NULL || top_b->next == NULL)
-	{
-		return ;
-	}
-	last = top_b;
-	while (last->next != NULL)
-	{
-		last = last->next;
-	}
-	last->next = top_b;
-	top_b = top_b->next;
+	last->next = g_top_a;
+	g_top_a = g_top_a->next;
 	last->next->next = NULL;
 }
 
@@ -116,43 +71,22 @@ void	rr(void)
 
 void	rra(void)
 {
-	struct Node	*second_last;
-	struct Node	*last;
+	struct s_node	*second_last;
+	struct s_node	*last;
 
-	if (top_a == NULL || top_a->next == NULL)
+	if (g_top_a == NULL || g_top_a->next == NULL)
 	{
 		return ;
 	}
-	second_last = top_a;
+	second_last = g_top_a;
 	while (second_last->next->next != NULL)
 	{
 		second_last = second_last->next;
 	}
 	last = second_last->next;
 	second_last->next = NULL;
-	last->next = top_a;
-	top_a = last;
-}
-
-void	rrb(void)
-{
-	struct Node	*last;
-	struct Node	*secondLast;
-
-	if (top_b == NULL || top_b->next == NULL)
-	{
-		return ;
-	}
-	last = top_b;
-	secondLast = NULL;
-	while (last->next != NULL)
-	{
-		secondLast = last;
-		last = last->next;
-	}
-	secondLast->next = NULL;
-	last->next = top_b;
-	top_b = last;
+	last->next = g_top_a;
+	g_top_a = last;
 }
 
 void	rrr(void)
