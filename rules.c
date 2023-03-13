@@ -25,12 +25,6 @@ void	sa(void)
 	g_top_a->next->data = temp;
 }
 
-void	ss(void)
-{
-	sa();
-	sb();
-}
-
 void	pa(void)
 {
 	struct s_node	*temp;
@@ -63,12 +57,6 @@ void	ra(void)
 	last->next->next = NULL;
 }
 
-void	rr(void)
-{
-	ra();
-	rb();
-}
-
 void	rra(void)
 {
 	struct s_node	*second_last;
@@ -87,10 +75,4 @@ void	rra(void)
 	second_last->next = NULL;
 	last->next = g_top_a;
 	g_top_a = last;
-}
-
-void	rrr(void)
-{
-	rra();
-	rrb();
 }
