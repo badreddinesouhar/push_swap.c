@@ -51,7 +51,7 @@ void	push_b(int value)
 	}
 }
 
-int	display_a(void)
+void	display_a(void)
 {
 	struct Node	*temp;
 

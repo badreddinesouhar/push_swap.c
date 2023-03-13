@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifdef _PUSH_SWAP_H
+#ifndef _PUSH_SWAP_H
 #define _PUSH_SWAP_H
 
 #include <stdlib.h>
@@ -22,10 +22,13 @@ struct Node {
     struct Node *next;
 };
 
+extern struct Node	*top_a;
+extern struct Node	*top_b;
+
 void push_a(int value);
 void push_b(int value);
 void sa(void);
-int display_a(void);
+void display_a(void);
 
 
 #endif

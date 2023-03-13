@@ -10,4 +10,17 @@
 #                                                                              #
 # **************************************************************************** #
 
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+SRC = main.c push_swap.c rules.c
+OBJ = $(SRC:.c=.o)
+TARGET = push_swap
 
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(TARGET) $(OBJ)

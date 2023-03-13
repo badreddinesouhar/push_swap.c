@@ -22,5 +22,6 @@ int	main(int argc, char **argv)
 		push_a(atoi(argv[i]));
 		i--;
 	}
+	sa();
 	display_a();
 }
