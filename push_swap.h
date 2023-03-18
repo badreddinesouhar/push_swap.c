@@ -41,5 +41,6 @@ void					rr(void);
 void					rra(void);
 void					rrb(void);
 void					rrr(void);
+void					sort_three_numbers(void);
 
 #endif

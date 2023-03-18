@@ -19,10 +19,16 @@ int	main(int argc, char **argv)
 	i = argc - 1;
 	while (i > 0)
 	{
-		push_b(atoi(argv[i]));
+		push_a(atoi(argv[i]));
 		i--;
 	}
-	display_b();
-	rrb();
-	display_b();
+	display_a();
+	sort_three_numbers();
+	display_a();
 }
+
+
+// int main(int argc , char  **argv)
+// {
+
+// }

@@ -10,9 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swaph.h"
+#include "push_swap.h"
 
-void sort_3()
+void	sort_three_numbers(void)
 {
-    if ()
-}
+	int	a;
+	int	b;
+	int	c;
+
+	if (g_top_a == NULL || g_top_a->next == NULL || g_top_a->next->next == NULL)
+		return ;
+	a = g_top_a->data;
+	b = g_top_a->next->data;
+	c = g_top_a->next->next->data;
+
+	if (a > b && b < c && c > a)
+		sa();
+	else if (a > b && b > c)
+		sa(), rra();
+	else if (a > b && b < c && a > c)
+		ra();
+	else if (a < b && b > c && c > a)
+		sa(), ra();
+	else if (a < b && b > c && a > c)
+		rra();
+ }
+ 
