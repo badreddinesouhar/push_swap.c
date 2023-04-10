@@ -12,20 +12,20 @@
 
 #include "push_swap.h"
 
-void	ss(void)
+void	ss(struct s_node **top_a, struct s_node **top_b)
 {
-	sa();
-	sb();
+	sa(top_a);
+	sb(top_b);
 }
 
-void	rr(void)
+void	rr(struct s_node **top_a, struct s_node **top_b)
 {
-	ra();
-	rb();
+	ra(top_a);
+	rb(top_b);
 }
 
-void	rrr(void)
+void	rrr(struct s_node **top_a, struct s_node **top_b)
 {
-	rra();
-	rrb();
+	rra(top_a);
+	rrb(top_b);
 }

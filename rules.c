@@ -12,67 +12,68 @@
 
 #include "push_swap.h"
 
-void	sa(void)
+void	sa(struct s_node **top)
 {
 	int	temp;
 
-	if (g_top_a == NULL || g_top_a->next == NULL)
+	if (*top == NULL || (*top)->next == NULL)
 	{
 		return ;
 	}
-	temp = g_top_a->data;
-	g_top_a->data = g_top_a->next->data;
-	g_top_a->next->data = temp;
+	temp = (*top)->data;
+	(*top)->data = (*top)->next->data;
+	(*top)->next->data = temp;
 }
 
-void	pa(void)
+void	pa(struct s_node **src, struct s_node **dst)
 {
 	struct s_node	*temp;
 
-	if (g_top_b == NULL)
+	if (*src == NULL)
 	{
 		return ;
 	}
-	temp = g_top_b;
-	g_top_b = g_top_b->next;
-	temp->next = g_top_a;
-	g_top_a = temp;
+	temp = *src;
+	*src = (*src)->next;
+	temp->next = *dst;
+	*dst = temp;
 }
 
-void	ra(void)
+void	ra(struct s_node **top)
 {
 	struct s_node	*last;
 
-	if (g_top_a == NULL || g_top_a->next == NULL)
+	if (*top == NULL || (*top)->next == NULL)
 	{
 		return ;
 	}
-	last = g_top_a;
+	last = *top;
 	while (last->next != NULL)
 	{
 		last = last->next;
 	}
-	last->next = g_top_a;
-	g_top_a = g_top_a->next;
+	last->next = *top;
+	*top = (*top)->next;
 	last->next->next = NULL;
 }
 
-void	rra(void)
+void	rra(struct s_node **top)
 {
-	struct s_node	*second_last;
 	struct s_node	*last;
+	struct s_node	*secondlast;
 
-	if (g_top_a == NULL || g_top_a->next == NULL)
+	if (*top == NULL || (*top)->next == NULL)
 	{
 		return ;
 	}
-	second_last = g_top_a;
-	while (second_last->next->next != NULL)
+	last = *top;
+	secondlast = NULL;
+	while (last->next != NULL)
 	{
-		second_last = second_last->next;
+		secondlast = last;
+		last = last->next;
 	}
-	last = second_last->next;
-	second_last->next = NULL;
-	last->next = g_top_a;
-	g_top_a = last;
+	secondlast->next = NULL;
+	last->next = *top;
+	*top = last;
 }

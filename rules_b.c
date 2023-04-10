@@ -12,61 +12,62 @@
 
 #include "push_swap.h"
 
-void	sb(void)
+void	sb(struct s_node **top_b)
 {
 	int	temp;
 
-	if (g_top_b == NULL || g_top_b->next == NULL)
+	// struct s_node	*temp_node;
+	if (*top_b == NULL || (*top_b)->next == NULL)
 	{
 		return ;
 	}
-	temp = g_top_b->data;
-	g_top_b->data = g_top_b->next->data;
-	g_top_b->next->data = temp;
+	temp = (*top_b)->data;
+	(*top_b)->data = (*top_b)->next->data;
+	(*top_b)->next->data = temp;
 }
 
-void	pb(void)
+void	pb(struct s_node **top_a, struct s_node **top_b)
 {
 	struct s_node	*temp;
 
-	if (g_top_a == NULL)
+	if (*top_a == NULL)
 	{
 		return ;
 	}
-	temp = g_top_a;
-	g_top_a = g_top_a->next;
-	temp->next = g_top_b;
-	g_top_b = temp;
+	temp = *top_a;
+	*top_a = (*top_a)->next;
+	temp->next = *top_b;
+	*top_b = temp;
 }
 
-void	rb(void)
+void	rb(struct s_node **top_b)
 {
 	struct s_node	*last;
 
-	if (g_top_b == NULL || g_top_b->next == NULL)
+	if (*top_b == NULL || (*top_b)->next == NULL)
 	{
 		return ;
 	}
-	last = g_top_b;
+	last = *top_b;
 	while (last->next != NULL)
 	{
 		last = last->next;
 	}
-	last->next = g_top_b;
-	g_top_b = g_top_b->next;
+	last->next = *top_b;
+	*top_b = (*top_b)->next;
 	last->next->next = NULL;
 }
 
-void	rrb(void)
+void	rrb(struct s_node **top_b)
 {
 	struct s_node	*last;
 	struct s_node	*secondlast;
 
-	if (g_top_b == NULL || g_top_b->next == NULL)
+	if (*top_b == NULL || (*top_b)->next == NULL)
 	{
 		return ;
 	}
-	last = g_top_b;
+	last = *top_b;
 	secondlast = NULL;
 	while (last->next != NULL)
 	{
@@ -74,6 +75,6 @@ void	rrb(void)
 		last = last->next;
 	}
 	secondlast->next = NULL;
-	last->next = g_top_b;
-	g_top_b = last;
+	last->next = *top_b;
+	*top_b = last;
 }

@@ -13,34 +13,32 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "lib/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-struct					s_node
+struct				s_node
 {
-	int					data;
-	struct s_node		*next;
+	int				data;
+	struct s_node	*next;
 };
 
-extern struct s_node	*g_top_a;
-extern struct s_node	*g_top_b;
-
-void					push_a(int value);
-void					push_b(int value);
-void					sa(void);
-void					display_a(void);
-void					display_b(void);
-void					sb(void);
-void					ss(void);
-void					pa(void);
-void					pb(void);
-void					ra(void);
-void					rb(void);
-void					rr(void);
-void					rra(void);
-void					rrb(void);
-void					rrr(void);
-void					sort_three_numbers(void);
+void				push(struct s_node **top, int value);
+int					pop(struct s_node **top);
+void				display(struct s_node *top);
+void				sa(struct s_node **top);
+void				pa(struct s_node **src, struct s_node **dst);
+void				ra(struct s_node **top);
+void				rra(struct s_node **top);
+void				print_stack(struct s_node *top);
+void				sb(struct s_node **top_b);
+void				pb(struct s_node **top_a, struct s_node **top_b);
+void				rb(struct s_node **top_b);
+void				rrb(struct s_node **top_b);
+void				rrr(struct s_node **top_a, struct s_node **top_b);
+void				rr(struct s_node **top_a, struct s_node **top_b);
+void				ss(struct s_node **top_a, struct s_node **top_b);
+void				sort_three_numbers(struct s_node **top);
 
 #endif

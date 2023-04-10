@@ -12,27 +12,39 @@
 
 #include "push_swap.h"
 
-void	sort_three_numbers(void)
+void	sort_three_numbers(struct s_node **top)
 {
 	int	a;
 	int	b;
 	int	c;
 
-	if (g_top_a == NULL || g_top_a->next == NULL || g_top_a->next->next == NULL)
+	if (*top == NULL || (*top)->next == NULL || (*top)->next->next == NULL)
+	{
 		return ;
-	a = g_top_a->data;
-	b = g_top_a->next->data;
-	c = g_top_a->next->next->data;
-
+	}
+	a = (*top)->data;
+	b = (*top)->next->data;
+	c = (*top)->next->next->data;
 	if (a > b && b < c && c > a)
-		sa();
+	{
+		sa(top);
+	}
 	else if (a > b && b > c)
-		sa(), rra();
+	{
+		sa(top);
+		rra(top);
+	}
 	else if (a > b && b < c && a > c)
-		ra();
+	{
+		ra(top);
+	}
 	else if (a < b && b > c && c > a)
-		sa(), ra();
+	{
+		sa(top);
+		ra(top);
+	}
 	else if (a < b && b > c && a > c)
-		rra();
- }
- 
+	{
+		rra(top);
+	}
+}
