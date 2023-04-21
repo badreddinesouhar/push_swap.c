@@ -13,7 +13,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "lib/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -40,5 +39,11 @@ void				rrr(struct s_node **top_a, struct s_node **top_b);
 void				rr(struct s_node **top_a, struct s_node **top_b);
 void				ss(struct s_node **top_a, struct s_node **top_b);
 void				sort_three_numbers(struct s_node **top);
+void	ft_putstr_fd(char *s, int fd);
+char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(const char *s);
+char	**ft_split(const char *s, char c);
+int	ft_atoi(const char *str)
 
 #endif

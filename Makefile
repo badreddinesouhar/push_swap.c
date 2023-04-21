@@ -12,7 +12,7 @@
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRC = main.c push_swap.c rules.c rules_b.c rules_rr.c sort.c
+SRC = main.c push_swap.c rules.c rules_b.c rules_rr.c sort.c lib_utils.c
 OBJ = $(SRC:.c=.o)
 TARGET = push_swap
 LIBFT = lib/libft.a
