@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsouhar <bsouhar@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 09:28:12 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/03/13 09:28:14 by bsouhar          ###   ########.fr       */
+/*   Created: 2022/10/21 20:34:56 by bsouhar           #+#    #+#             */
+/*   Updated: 2022/10/21 20:35:21 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc,char **argv)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char **ar
+	unsigned int	i;
+	char			*res;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	res = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!res)
+		return (NULL);
+	while (s[i])
+	{
+		res[i] = f(i, s[i]);
+		i++;
+	}
+	res[i] = '\0';
+	return (res);
 }

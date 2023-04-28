@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsouhar <bsouhar@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 09:28:12 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/03/13 09:28:14 by bsouhar          ###   ########.fr       */
+/*   Created: 2022/10/21 20:22:05 by bsouhar           #+#    #+#             */
+/*   Updated: 2022/10/21 20:28:51 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc,char **argv)
+void	*ft_calloc(size_t count, size_t size)
 {
-	char **ar
+	void	*ptr;
+	size_t	mem_size;
+
+	if (count == SIZE_MAX && size == SIZE_MAX)
+		return (NULL);
+	mem_size = count * size;
+	ptr = malloc(mem_size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, mem_size);
+	return (ptr);
 }

@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsouhar <bsouhar@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 09:28:12 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/03/13 09:28:14 by bsouhar          ###   ########.fr       */
+/*   Created: 2022/10/21 20:45:35 by bsouhar           #+#    #+#             */
+/*   Updated: 2022/10/21 20:46:15 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc,char **argv)
+char	*ft_strrchr(const char *s, int c)
 {
-	char **ar
+	int		i;
+	char	*p;
+
+	i = ft_strlen(s);
+	p = (char *)s;
+	while (i >= 0)
+	{
+		if (p[i] == (char)c)
+			return (&p[i]);
+		i--;
+	}
+	return (NULL);
 }

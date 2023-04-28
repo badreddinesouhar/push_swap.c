@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsouhar <bsouhar@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 09:28:12 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/03/13 09:28:14 by bsouhar          ###   ########.fr       */
+/*   Created: 2022/10/21 19:30:41 by bsouhar           #+#    #+#             */
+/*   Updated: 2022/10/21 19:33:19 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc,char **argv)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char **ar
+	unsigned char	*mem;
+	size_t			i;
+
+	i = 0;
+	mem = (unsigned char *)b;
+	while (i < len)
+	{
+		mem[i] = (unsigned char)c;
+		i++;
+	}
+	return (b);
 }
