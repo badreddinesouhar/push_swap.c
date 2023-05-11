@@ -48,5 +48,27 @@ void	sort_three_numbers(struct s_node **top)
 		rra(top);
 	}
 }
+void	sort_five_numbers(struct s_node **stack_a, struct s_node **stack_b)
+{
+	int	min_index;
+	int	min;
+	int	middle;
 
-//void sort_five_numbers(struct s_node **top)
+	while (stack_len(*stack_a) != 3)
+	{
+		min = min_val(stack_a);
+		min_index = min_idx(stack_a);
+		middle = stack_len(*stack_a) / 2;
+		if ((*stack_a)->data == min)
+			pb(stack_a, stack_b);
+		else if (min_index > middle)
+			rra(stack_a);
+		else
+			ra(stack_a);
+	}
+	if (!is_sorted(*stack_a))
+		sort_three_numbers(stack_a);
+	pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
+}
+

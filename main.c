@@ -14,12 +14,13 @@
 
 int	main(int argc, char **argv)
 {
-	struct s_node	*stack_a;
-	struct s_node	*stack_b;
-	int				i;
-	int				j;
-	char			**args;
-	char			**nums;
+	struct s_node *stack_a;
+	struct s_node *stack_b;
+	int i;
+	int j;
+	char **args;
+	char **nums;
+	int *sorted_arr;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -43,6 +44,8 @@ int	main(int argc, char **argv)
 		free_list(&stack_a);
 		return (0);
 	}
+	sorted_arr = sorting_arr(argv + 1, argc - 1);
+	sort(stack_a, stack_b, sorted_arr);
 	display(stack_a);
 	free_list(&stack_a);
 }
