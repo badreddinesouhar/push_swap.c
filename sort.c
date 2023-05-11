@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:01:13 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/03/13 15:01:15 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/05/10 10:22:35 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,3 +48,5 @@ void	sort_three_numbers(struct s_node **top)
 		rra(top);
 	}
 }
+
+//void sort_five_numbers(struct s_node **top)
