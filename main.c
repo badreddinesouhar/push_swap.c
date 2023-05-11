@@ -15,12 +15,12 @@
 int	main(int argc, char **argv)
 {
 	struct s_node	*stack_a;
-	struct s_node	*stack_b;
+	//struct s_node	*stack_b;
 	int i;
 	char **args;
 
 	stack_a = NULL;
-	stack_b = NULL;
+	//stack_b = NULL;
 	i = 0;
 	if (argc == 1)
 		return (1);
@@ -52,7 +52,7 @@ char **check_args(char **argv)
 
 	str = 0;
 	i = 0;
-	while (*argv != '\0')
+	while (argv[i] != NULL)
 	{
 		av = ft_strtrim(argv[i], " ");
 		if(*av == '\0')

@@ -21,7 +21,7 @@ $(TARGET): $(OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ) $(LIBFT)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c -g $< -o $@
 
 $(LIBFT):
 	make -C lib all
