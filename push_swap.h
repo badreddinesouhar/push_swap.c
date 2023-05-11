@@ -40,6 +40,7 @@ void				rrr(struct s_node **top_a, struct s_node **top_b);
 void				rr(struct s_node **top_a, struct s_node **top_b);
 void				ss(struct s_node **top_a, struct s_node **top_b);
 void				sort_three_numbers(struct s_node **top);
-char **check_args(char **argv);
+char				**check_args(char **argv);
+void				error(void);
 
 #endif
