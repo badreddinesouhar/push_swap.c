@@ -17,19 +17,32 @@ int	main(int argc, char **argv)
 	struct s_node	*stack_a;
 	struct s_node	*stack_b;
 	int				i;
+	int				j;
 	char			**args;
+	char			**nums;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	i = 0;
+	j = 0;
 	if (argc == 1)
 		return (1);
 	args = check_args(argv + 1);
-	while (args[i] != NULL)
+	nums = no_errors(args);
+	if (!is_valid_input(&nums[j]))
 	{
-		push(&stack_a, ft_atoi(args[i]));
+		error();
+	}
+	while (nums[i] != NULL)
+	{
+		push(&stack_a, ft_atoi(nums[i]));
 		i++;
 	}
+	if (is_sorted(stack_a))
+	{
+		free_list(&stack_a);
+		return (0);
+	}
 	display(stack_a);
-	return (0);
+	free_list(&stack_a);
 }

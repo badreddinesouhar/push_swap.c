@@ -42,5 +42,12 @@ void				ss(struct s_node **top_a, struct s_node **top_b);
 void				sort_three_numbers(struct s_node **top);
 char				**check_args(char **argv);
 void				error(void);
+char				**no_errors(char **args);
+int					ft_same(const char *s1, const char *s2);
+void				free_arr(char **arr);
+void				free_list(struct s_node **stack);
+int					is_sorted(struct s_node *stack);
+int					is_valid_input(char **av_split);
+int					ft_isdigit_str(char *str);
 
 #endif
