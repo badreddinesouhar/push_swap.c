@@ -16,7 +16,6 @@ void	sb(struct s_node **top_b)
 {
 	int	temp;
 
-	// struct s_node	*temp_node;
 	if (*top_b == NULL || (*top_b)->next == NULL)
 	{
 		return ;
@@ -31,13 +30,17 @@ void	pb(struct s_node **top_a, struct s_node **top_b)
 	struct s_node	*temp;
 
 	if (*top_a == NULL)
-	{
 		return ;
-	}
 	temp = *top_a;
 	*top_a = (*top_a)->next;
-	temp->next = *top_b;
-	*top_b = temp;
+	temp->next = NULL;
+	if (*top_b == NULL)
+		*top_b = temp;
+	else
+	{
+		temp->next = *top_b;
+		*top_b = temp;
+	}
 }
 
 void	rb(struct s_node **top_b)

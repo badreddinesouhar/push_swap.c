@@ -54,21 +54,37 @@ void	sort_five_numbers(struct s_node **stack_a, struct s_node **stack_b)
 	int	min;
 	int	middle;
 
-	while (stack_len(*stack_a) != 3)
+	while (stack_len(*stack_a) > 3)
 	{
 		min = min_val(stack_a);
 		min_index = min_idx(stack_a);
 		middle = stack_len(*stack_a) / 2;
+		while ((*stack_a)->data != min)
+		{
+			if (min_index >= middle)
+				rra(stack_a);
+			else if (min_index <= middle)
+				ra(stack_a);
+		}
 		if ((*stack_a)->data == min)
 			pb(stack_a, stack_b);
-		else if (min_index > middle)
-			rra(stack_a);
-		else
-			ra(stack_a);
 	}
-	if (!is_sorted(*stack_a))
+	if (is_sorted(*stack_a) <= 3)
 		sort_three_numbers(stack_a);
-	pa(stack_a, stack_b);
-	pa(stack_a, stack_b);
+	pa(stack_b, stack_a);
+	pa(stack_b, stack_a);
+	display(*stack_a);
 }
 
+void sort_hun_numbers(struct s_node **stack_a, struct s_node **stack_b, int *sorted)
+{
+	int start;
+	int end;
+
+	start = 0;
+	end = 15;
+	while (stack_len(*stack_a))
+	{
+		if ()
+	}
+}

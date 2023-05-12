@@ -45,7 +45,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	sorted_arr = sorting_arr(argv + 1, argc - 1);
-	sort(stack_a, stack_b, sorted_arr);
+	sort(&stack_a, &stack_b, sorted_arr);
 	display(stack_a);
 	free_list(&stack_a);
 }

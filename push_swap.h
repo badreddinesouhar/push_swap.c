@@ -14,10 +14,10 @@
 # define PUSH_SWAP_H
 
 # include "lib/libft.h"
+# include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include <stddef.h>
 
 struct				s_node
 {
@@ -51,11 +51,12 @@ int					is_sorted(struct s_node *stack);
 int					is_valid_input(char **av_split);
 int					ft_isdigit_str(char *str);
 int					*sorting_arr(char **argv, int size);
-void sort(struct s_node *stack_a, struct s_node *stack_b, int *sorted_arr);
-int	stack_len(struct s_node *stack);
-int min_val(struct s_node **stack);
-int min_idx(struct s_node **stack);
-void	sort_five_numbers(struct s_node **stack_a, struct s_node **stack_b);
-
+void				sort(struct s_node **stack_a, struct s_node **stack_b,
+						int *sorted_arr);
+int					stack_len(struct s_node *stack);
+int					min_val(struct s_node **stack);
+int					min_idx(struct s_node **stack);
+void	sort_five_numbers(struct s_node **stack_a,
+						struct s_node **stack_b);
 
 #endif
