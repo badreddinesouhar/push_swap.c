@@ -206,21 +206,49 @@ int	max_value(struct s_node *stack_b)
 	return (max);
 }
 
-int	find_index(struct s_node *stack, int value)
-{
-	int	index;
+// int	find_index(struct s_node *stack, int value)
+// {
+// 	int	index;
 
-	index = 0;
-	while (stack != NULL)
-	{
-		if (stack->data == value)
-		{
-			return (index);
-		}
-		stack = stack->next;
-		index++;
-	}
-	return (-1);
+// 	index = 0;
+// 	while (stack != NULL)
+// 	{
+// 		if (stack->data == value)
+// 		{
+// 			return (index);
+// 		}
+// 		stack = stack->next;
+// 		index++;
+// 	}
+// 	return (-1);
+// }
+
+struct s_node *find_node(struct s_node *stack, int value)
+{
+    while (stack != NULL)
+    {
+        if (stack->data == value)
+        {
+            return stack;
+        }
+        stack = stack->next;
+    }
+    return NULL;
+}
+
+int find_index(struct s_node *stack, int value)
+{
+    struct s_node *node = find_node(stack, value);
+    if (node == NULL) {
+        return -1;
+    }
+    int index = 0;
+    while (stack != node)
+    {
+        stack = stack->next;
+        index++;
+    }
+    return index;
 }
 
 void	sort_hun_numbers(struct s_node **stack_a, struct s_node **stack_b,
@@ -266,22 +294,43 @@ void	sort_hun_numbers(struct s_node **stack_a, struct s_node **stack_b,
 	final_hund_sort(stack_a, stack_b);
 }
 
+// void	final_hund_sort(struct s_node **stack_a, struct s_node **stack_b)
+// {
+// 	int	max;
+// 	int	max_index;
+
+// 	while (stack_len(*stack_b))
+// 	{
+// 		printf("%d\n",stack_len(*stack_b));
+// 		max = max_value(*stack_b);
+// 		max_index = find_index(*stack_b, max);
+// 		if ((*stack_a)->data == max)
+// 			pa(stack_b, stack_a);
+// 		else if (max_index > (stack_len(*stack_b) / 2))
+// 			rrb(stack_b);
+// 		else
+// 			rb(stack_b);
+// 	}
+// 	display(*stack_a);
+// }
 void	final_hund_sort(struct s_node **stack_a, struct s_node **stack_b)
 {
-	int	max;
-	int	max_index;
+    int	max;
+    int	max_index;
 
-	while (stack_len(*stack_b))
-	{
-		printf("%d\n",stack_len(*stack_b));
-		max = max_value(*stack_b);
-		max_index = find_index(*stack_b, max);
-		if ((*stack_a)->data == max)
-			pa(stack_b, stack_a);
-		else if (max_index > (stack_len(*stack_b) / 2))
-			rrb(stack_b);
-		else
-			rb(stack_b);
-	}
-	display(*stack_a);
+    while (stack_len(*stack_b))
+    {
+        printf("%d\n",stack_len(*stack_b));
+        max = max_value(*stack_b);
+        max_index = find_index(*stack_b, max);
+        if ((*stack_a)->data == max)
+            pa(stack_b, stack_a);
+        else if (max_index > (stack_len(*stack_b) / 2))
+            rrb(stack_b);
+        else
+            rb(stack_b);
+    }
+    display(*stack_a);
 }
+
+
