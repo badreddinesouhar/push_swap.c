@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "lib/libft.h"
+# include <limits.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -58,5 +59,10 @@ int					min_val(struct s_node **stack);
 int					min_idx(struct s_node **stack);
 void	sort_five_numbers(struct s_node **stack_a,
 						struct s_node **stack_b);
+void	final_hund_sort(struct s_node **stack_a,
+						struct s_node **stack_b);
+void	sort_hun_numbers(struct s_node **stack_a,
+						struct s_node **stack_b,
+						int *sorted);
 
 #endif
