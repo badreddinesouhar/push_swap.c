@@ -64,5 +64,7 @@ void	final_hund_sort(struct s_node **stack_a,
 void	sort_hun_numbers(struct s_node **stack_a,
 						struct s_node **stack_b,
 						int *sorted);
+void	sort_fivehun_numbers(struct s_node **stack_a, struct s_node **stack_b,
+		int *sorted);
 
 #endif

@@ -76,4 +76,6 @@ void	sort(struct s_node **stack_a, struct s_node **stack_b, int *sorted_arr)
 		sort_five_numbers(stack_a, stack_b);
 	else if (len <= 100)
 		sort_hun_numbers(stack_a, stack_b, sorted_arr);
+	else if (len <= 500)
+		sort_fivehun_numbers(stack_a, stack_b, sorted_arr);
 }
