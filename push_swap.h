@@ -29,7 +29,6 @@ struct				s_node
 
 void				push(t_node **top, int value);
 int					pop(t_node **top);
-void				display(t_node *top);
 void				sa(t_node **top);
 void				pa(t_node **src, t_node **dst);
 void				ra(t_node **top);

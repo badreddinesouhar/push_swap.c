@@ -33,8 +33,8 @@ void	push(t_node **top, int value)
 
 int	pop(t_node **top)
 {
-	int		value;
-	t_node	*temp;
+	int value;
+	t_node *temp;
 
 	if (*top == NULL)
 	{
@@ -45,14 +45,4 @@ int	pop(t_node **top)
 	*top = (*top)->next;
 	free(temp);
 	return (value);
-}
-
-void	display(t_node *top)
-{
-	while (top != NULL)
-	{
-		ft_printf("%d ", top->data);
-		top = top->next;
-	}
-	ft_printf("\n");
 }

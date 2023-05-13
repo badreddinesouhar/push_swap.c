@@ -25,9 +25,11 @@ int	ft_isdigit_str(char *str)
 	while (str[i])
 	{
 		if ((str[i] >= '0' && str[i] <= '9') || str[i] == '+' || str[i] == '-')
+		{
 			i++;
-		// if (!ft_isdigit(str[i]))
-		// 	error();
+			if (!ft_isdigit(str[i]))
+				error();
+		}
 		else
 			return (0);
 	}
