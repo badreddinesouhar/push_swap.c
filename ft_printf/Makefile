@@ -5,41 +5,40 @@
 #                                                     +:+ +:+         +:+      #
 #    By: bsouhar <bsouhar@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/13 09:29:12 by bsouhar           #+#    #+#              #
-#    Updated: 2023/03/13 09:29:16 by bsouhar          ###   ########.fr        #
+#    Created: 2022/10/27 21:17:58 by bsouhar           #+#    #+#              #
+#    Updated: 2022/10/28 19:42:33 by bsouhar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
- 
- CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-SRC = main.c push_swap.c rules.c rules_b.c rules_rr.c sort.c check_avs.c quicksort.c \
-	sort_utils.c
-OBJ = $(SRC:.c=.o)
-TARGET = push_swap
-LIBFT = lib/libft.a
-PRINTF = ft_printf
 
-$(TARGET): $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ) $(LIBFT) -L ft_printf -lftprintf
+CC = gcc
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+CFLAGS = -Wall -Wextra -Werror  
 
-$(LIBFT):
-	make -C lib all
-	make -C ft_printf all
+NAME = libftprintf.a
 
+SRCS =  ft_printf.c\
+		ft_putchar.c\
+		ft_puthex.c\
+		ft_putnbr.c\
+		ft_putunnbr.c\
+		ft_putstr.c\
+		ft_putpointer.c\
+
+OBJS = $(SRCS:.c=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	ar -rcs $@ $^
+
+
+%.o : %.c
+	$(CC) $(CFLAGS) -c $^
+	
 clean:
-	rm -f $(TARGET) $(OBJ)
-	make -C lib clean
-	make -C ft_printf clean
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(LIBFT)
-	rm -rf lib/libft/*.o
-	rm -rf lib/libft/libft.a
-	rm -f ft_printf/libftprintf.a
+	rm -f $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re

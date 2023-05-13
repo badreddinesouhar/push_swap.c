@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-int	stack_len(struct s_node *stack)
+int	stack_len(t_node *stack)
 {
-	int				length;
-	struct s_node	*current;
+	int		length;
+	t_node	*current;
 
 	length = 0;
 	current = stack;
@@ -27,10 +27,10 @@ int	stack_len(struct s_node *stack)
 	return (length);
 }
 
-int	min_val(struct s_node **stack)
+int	min_val(t_node **stack)
 {
-	int				*min;
-	struct s_node	*tmp;
+	int		*min;
+	t_node	*tmp;
 
 	if (*stack == NULL)
 		return (-1);
@@ -45,10 +45,10 @@ int	min_val(struct s_node **stack)
 	return (*min);
 }
 
-int	min_idx(struct s_node **stack)
+int	min_idx(t_node **stack)
 {
-	size_t			min_index;
-	struct s_node	*tmp;
+	size_t	min_index;
+	t_node	*tmp;
 
 	min_index = 0;
 	if (*stack == NULL)
@@ -63,7 +63,7 @@ int	min_idx(struct s_node **stack)
 	return ((int)min_index);
 }
 
-void	sort(struct s_node **stack_a, struct s_node **stack_b, int *sorted_arr)
+void	sort(t_node **stack_a, t_node **stack_b, int *sorted_arr)
 {
 	int	len;
 

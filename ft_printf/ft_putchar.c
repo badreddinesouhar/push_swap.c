@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_rr.c                                         :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsouhar <bsouhar@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 10:52:40 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/03/13 10:52:42 by bsouhar          ###   ########.fr       */
+/*   Created: 2022/10/25 21:46:43 by bsouhar           #+#    #+#             */
+/*   Updated: 2022/10/28 18:20:26 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-void	ss(t_node **top_a, t_node **top_b)
+void	ft_putchar(char c, int *counter)
 {
-	sa(top_a);
-	sb(top_b);
-	ft_printf("%s\n", "ss");
-}
-
-void	rr(t_node **top_a, t_node **top_b)
-{
-	ra(top_a);
-	rb(top_b);
-	ft_printf("%s\n", "rr");
-}
-
-void	rrr(t_node **top_a, t_node **top_b)
-{
-	rra(top_a);
-	rrb(top_b);
-	ft_printf("%s\n", "rrr");
+	write(1, &c, 1);
+	*counter = *counter + 1;
 }

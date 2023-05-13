@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	sb(struct s_node **top_b)
+void	sb(t_node **top_b)
 {
 	int	temp;
 
@@ -23,11 +23,12 @@ void	sb(struct s_node **top_b)
 	temp = (*top_b)->data;
 	(*top_b)->data = (*top_b)->next->data;
 	(*top_b)->next->data = temp;
+	ft_printf("%s\n", "sb");
 }
 
-void	pb(struct s_node **top_a, struct s_node **top_b)
+void	pb(t_node **top_a, t_node **top_b)
 {
-	struct s_node	*temp;
+	t_node	*temp;
 
 	if (*top_a == NULL)
 		return ;
@@ -41,11 +42,12 @@ void	pb(struct s_node **top_a, struct s_node **top_b)
 		temp->next = *top_b;
 		*top_b = temp;
 	}
+	ft_printf("%s\n", "pb");
 }
 
-void	rb(struct s_node **top_b)
+void	rb(t_node **top_b)
 {
-	struct s_node	*last;
+	t_node	*last;
 
 	if (*top_b == NULL || (*top_b)->next == NULL)
 	{
@@ -59,12 +61,13 @@ void	rb(struct s_node **top_b)
 	last->next = *top_b;
 	*top_b = (*top_b)->next;
 	last->next->next = NULL;
+	ft_printf("%s\n", "rb");
 }
 
-void	rrb(struct s_node **top_b)
+void	rrb(t_node **top_b)
 {
-	struct s_node	*last;
-	struct s_node	*secondlast;
+	t_node	*last;
+	t_node	*secondlast;
 
 	if (*top_b == NULL || (*top_b)->next == NULL)
 	{
@@ -80,4 +83,5 @@ void	rrb(struct s_node **top_b)
 	secondlast->next = NULL;
 	last->next = *top_b;
 	*top_b = last;
+	ft_printf("%s\n", "rrb");
 }

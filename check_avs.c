@@ -107,9 +107,9 @@ int	ft_same(const char *s1, const char *s2)
 	return (str1 - str2);
 }
 
-int	is_sorted(struct s_node *stack)
+int	is_sorted(t_node *stack)
 {
-	struct s_node	*tmp;
+	t_node	*tmp;
 
 	if (!stack)
 		return (0);
@@ -136,10 +136,10 @@ void	free_arr(char **arr)
 	free(arr);
 }
 
-void	free_list(struct s_node **stack)
+void	free_list(t_node **stack)
 {
-	struct s_node	*current;
-	struct s_node	*tmp;
+	t_node	*current;
+	t_node	*tmp;
 
 	if (*stack)
 	{

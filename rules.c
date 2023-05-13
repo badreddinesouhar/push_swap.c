@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	sa(struct s_node **top)
+void	sa(t_node **top)
 {
 	int	temp;
 
@@ -23,11 +23,12 @@ void	sa(struct s_node **top)
 	temp = (*top)->data;
 	(*top)->data = (*top)->next->data;
 	(*top)->next->data = temp;
+	ft_printf("%s\n", "sa");
 }
 
-void	pa(struct s_node **src, struct s_node **dst)
+void	pa(t_node **src, t_node **dst)
 {
-	struct s_node	*temp;
+	t_node	*temp;
 
 	if (*src == NULL)
 	{
@@ -37,11 +38,12 @@ void	pa(struct s_node **src, struct s_node **dst)
 	*src = (*src)->next;
 	temp->next = *dst;
 	*dst = temp;
+	ft_printf("%s\n", "pa");
 }
 
-void	ra(struct s_node **top)
+void	ra(t_node **top)
 {
-	struct s_node	*last;
+	t_node	*last;
 
 	if (*top == NULL || (*top)->next == NULL)
 	{
@@ -55,12 +57,13 @@ void	ra(struct s_node **top)
 	last->next = *top;
 	*top = (*top)->next;
 	last->next->next = NULL;
+	ft_printf("%s\n", "ra");
 }
 
-void	rra(struct s_node **top)
+void	rra(t_node **top)
 {
-	struct s_node	*last;
-	struct s_node	*secondlast;
+	t_node	*last;
+	t_node	*secondlast;
 
 	if (*top == NULL || (*top)->next == NULL)
 	{
@@ -76,4 +79,5 @@ void	rra(struct s_node **top)
 	secondlast->next = NULL;
 	last->next = *top;
 	*top = last;
+	ft_printf("%s\n", "rra");
 }

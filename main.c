@@ -14,8 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	struct s_node *stack_a;
-	struct s_node *stack_b;
+	t_node *stack_a;
+	t_node *stack_b;
 	int i;
 	int j;
 	char **args;
@@ -46,6 +46,6 @@ int	main(int argc, char **argv)
 	}
 	sorted_arr = sorting_arr(argv + 1, argc - 1);
 	sort(&stack_a, &stack_b, sorted_arr);
-	display(stack_a);
+	//display(stack_a);
 	free_list(&stack_a);
 }

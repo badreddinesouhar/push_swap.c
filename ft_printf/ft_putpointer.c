@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_rr.c                                         :+:      :+:    :+:   */
+/*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsouhar <bsouhar@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 10:52:40 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/03/13 10:52:42 by bsouhar          ###   ########.fr       */
+/*   Created: 2022/10/28 19:15:52 by bsouhar           #+#    #+#             */
+/*   Updated: 2022/10/28 19:57:04 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-void	ss(t_node **top_a, t_node **top_b)
+void	ft_print_pointer(unsigned long n, const char *base, int *counter)
 {
-	sa(top_a);
-	sb(top_b);
-	ft_printf("%s\n", "ss");
-}
-
-void	rr(t_node **top_a, t_node **top_b)
-{
-	ra(top_a);
-	rb(top_b);
-	ft_printf("%s\n", "rr");
-}
-
-void	rrr(t_node **top_a, t_node **top_b)
-{
-	rra(top_a);
-	rrb(top_b);
-	ft_printf("%s\n", "rrr");
+	if (n >= 16)
+		ft_print_pointer(n / 16, base, counter);
+	ft_putchar(base[n % 16], counter);
 }

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	sort_three_numbers(struct s_node **top)
+void	sort_three_numbers(t_node **top)
 {
 	int	a;
 	int	b;
@@ -48,7 +48,7 @@ void	sort_three_numbers(struct s_node **top)
 		rra(top);
 	}
 }
-void	sort_five_numbers(struct s_node **stack_a, struct s_node **stack_b)
+void	sort_five_numbers(t_node **stack_a, t_node **stack_b)
 {
 	int	min_index;
 	int	min;
@@ -73,7 +73,6 @@ void	sort_five_numbers(struct s_node **stack_a, struct s_node **stack_b)
 		sort_three_numbers(stack_a);
 	pa(stack_b, stack_a);
 	pa(stack_b, stack_a);
-	display(*stack_a);
 }
 
 int	get_index(int top, int *arr)
@@ -92,7 +91,7 @@ int	get_index(int top, int *arr)
 	return (last_index);
 }
 
-int	max_value(struct s_node *stack_b)
+int	max_value(t_node *stack_b)
 {
 	int	max;
 
@@ -108,7 +107,7 @@ int	max_value(struct s_node *stack_b)
 	return (max);
 }
 
-struct s_node	*find_node(struct s_node *stack, int value)
+t_node	*find_node(t_node *stack, int value)
 {
 	while (stack != NULL)
 	{
@@ -121,10 +120,10 @@ struct s_node	*find_node(struct s_node *stack, int value)
 	return (NULL);
 }
 
-int	find_index(struct s_node *stack, int value)
+int	find_index(t_node *stack, int value)
 {
-	struct s_node	*node;
-	int				index;
+	t_node	*node;
+	int		index;
 
 	node = find_node(stack, value);
 	if (node == NULL)
@@ -140,8 +139,7 @@ int	find_index(struct s_node *stack, int value)
 	return (index);
 }
 
-void	sort_hun_numbers(struct s_node **stack_a, struct s_node **stack_b,
-		int *sorted)
+void	sort_hun_numbers(t_node **stack_a, t_node **stack_b, int *sorted)
 {
 	int	start;
 	int	end;
@@ -159,11 +157,6 @@ void	sort_hun_numbers(struct s_node **stack_a, struct s_node **stack_b,
 			pb(stack_a, stack_b);
 			start++;
 			end++;
-			if (*stack_a)
-			{
-				top = (*stack_a)->data;
-				index = get_index(top, sorted);
-			}
 		}
 		else if (index > end)
 			ra(stack_a);
@@ -173,39 +166,30 @@ void	sort_hun_numbers(struct s_node **stack_a, struct s_node **stack_b,
 			rb(stack_b);
 			start++;
 			end++;
-			if (*stack_a)
-			{
-				top = (*stack_a)->data;
-				index = get_index(top, sorted);
-			}
 		}
 	}
 	final_hund_sort(stack_a, stack_b);
 }
 
-void	final_hund_sort(struct s_node **stack_a, struct s_node **stack_b)
+void	final_hund_sort(t_node **stack_a, t_node **stack_b)
 {
 	int	max;
 	int	max_index;
 
 	while (stack_len(*stack_b))
 	{
-		printf("%d\n", stack_len(*stack_b));
-		printf("%d\n", stack_len(*stack_a));
 		max = max_value(*stack_b);
 		max_index = find_index(*stack_b, max);
 		if (*stack_b && (*stack_b)->data == max)
 			pa(stack_b, stack_a);
-		else if (max_index > (stack_len(*stack_b) / 2))
+		else if (max_index >= (stack_len(*stack_b) / 2))
 			rrb(stack_b);
 		else
 			rb(stack_b);
 	}
-	display(*stack_a);
 }
 
-void	sort_fivehun_numbers(struct s_node **stack_a, struct s_node **stack_b,
-		int *sorted)
+void	sort_fivehun_numbers(t_node **stack_a, t_node **stack_b, int *sorted)
 {
 	int	start;
 	int	end;
@@ -213,7 +197,7 @@ void	sort_fivehun_numbers(struct s_node **stack_a, struct s_node **stack_b,
 	int	index;
 
 	start = 0;
-	end = 30;
+	end = 35;
 	while (stack_len(*stack_a))
 	{
 		top = (*stack_a)->data;
@@ -223,11 +207,6 @@ void	sort_fivehun_numbers(struct s_node **stack_a, struct s_node **stack_b,
 			pb(stack_a, stack_b);
 			start++;
 			end++;
-			if (*stack_a)
-			{
-				top = (*stack_a)->data;
-				index = get_index(top, sorted);
-			}
 		}
 		else if (index > end)
 			ra(stack_a);
@@ -237,11 +216,6 @@ void	sort_fivehun_numbers(struct s_node **stack_a, struct s_node **stack_b,
 			rb(stack_b);
 			start++;
 			end++;
-			if (*stack_a)
-			{
-				top = (*stack_a)->data;
-				index = get_index(top, sorted);
-			}
 		}
 	}
 	final_hund_sort(stack_a, stack_b);

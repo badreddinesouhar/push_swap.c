@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_rr.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsouhar <bsouhar@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 10:52:40 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/03/13 10:52:42 by bsouhar          ###   ########.fr       */
+/*   Created: 2022/10/24 21:45:03 by bsouhar           #+#    #+#             */
+/*   Updated: 2022/10/28 18:25:41 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-void	ss(t_node **top_a, t_node **top_b)
+void	ft_putnbr(int n, int *counter)
 {
-	sa(top_a);
-	sb(top_b);
-	ft_printf("%s\n", "ss");
-}
-
-void	rr(t_node **top_a, t_node **top_b)
-{
-	ra(top_a);
-	rb(top_b);
-	ft_printf("%s\n", "rr");
-}
-
-void	rrr(t_node **top_a, t_node **top_b)
-{
-	rra(top_a);
-	rrb(top_b);
-	ft_printf("%s\n", "rrr");
+	if (n == -2147483648)
+	{
+		ft_putstr("-2", counter);
+		n = 147483648;
+	}
+	if (n < 0)
+	{
+		ft_putchar('-', counter);
+		ft_putnbr(-n, counter);
+	}
+	else if (n >= 0 && n <= 9)
+	{
+		ft_putchar(n + '0', counter);
+	}
+	else
+	{
+		ft_putnbr(n / 10, counter);
+		ft_putnbr(n % 10, counter);
+	}
 }

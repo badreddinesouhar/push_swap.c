@@ -12,20 +12,29 @@
 
 #include "push_swap.h"
 
-void	push(struct s_node **top, int value)
+void	push(t_node **top, int value)
 {
-	struct s_node	*newnode;
+	t_node	*newnode;
+	t_node	*temp;
 
-	newnode = (struct s_node *)malloc(sizeof(struct s_node));
+	newnode = (t_node *)malloc(sizeof(t_node));
 	newnode->data = value;
-	newnode->next = *top;
-	*top = newnode;
+	newnode->next = NULL;
+	if (*top == NULL)
+		*top = newnode;
+	else
+	{
+		temp = *top;
+		while (temp->next)
+			temp = temp->next;
+		temp->next = newnode;
+	}
 }
 
-int	pop(struct s_node **top)
+int	pop(t_node **top)
 {
-	int				value;
-	struct s_node	*temp;
+	int		value;
+	t_node	*temp;
 
 	if (*top == NULL)
 	{
@@ -38,12 +47,12 @@ int	pop(struct s_node **top)
 	return (value);
 }
 
-void	display(struct s_node *top)
+void	display(t_node *top)
 {
 	while (top != NULL)
 	{
-		printf("%d ", top->data);
+		ft_printf("%d ", top->data);
 		top = top->next;
 	}
-	printf("\n");
+	ft_printf("\n");
 }

@@ -14,57 +14,58 @@
 # define PUSH_SWAP_H
 
 # include "lib/libft.h"
+# include "ft_printf/ft_printf.h"
 # include <limits.h>
 # include <stddef.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+typedef struct	s_node t_node;
 
 struct				s_node
 {
 	int				data;
-	struct s_node	*next;
+	t_node	*next;
 };
 
-void				push(struct s_node **top, int value);
-int					pop(struct s_node **top);
-void				display(struct s_node *top);
-void				sa(struct s_node **top);
-void				pa(struct s_node **src, struct s_node **dst);
-void				ra(struct s_node **top);
-void				rra(struct s_node **top);
-void				print_stack(struct s_node *top);
-void				sb(struct s_node **top_b);
-void				pb(struct s_node **top_a, struct s_node **top_b);
-void				rb(struct s_node **top_b);
-void				rrb(struct s_node **top_b);
-void				rrr(struct s_node **top_a, struct s_node **top_b);
-void				rr(struct s_node **top_a, struct s_node **top_b);
-void				ss(struct s_node **top_a, struct s_node **top_b);
-void				sort_three_numbers(struct s_node **top);
+void				push(t_node **top, int value);
+int					pop(t_node **top);
+void				display(t_node *top);
+void				sa(t_node **top);
+void				pa(t_node **src, t_node **dst);
+void				ra(t_node **top);
+void				rra(t_node **top);
+void				print_stack(t_node *top);
+void				sb(t_node **top_b);
+void				pb(t_node **top_a, t_node **top_b);
+void				rb(t_node **top_b);
+void				rrb(t_node **top_b);
+void				rrr(t_node **top_a, t_node **top_b);
+void				rr(t_node **top_a, t_node **top_b);
+void				ss(t_node **top_a, t_node **top_b);
+void				sort_three_numbers(t_node **top);
 char				**check_args(char **argv);
 void				error(void);
 char				**no_errors(char **args);
 int					ft_same(const char *s1, const char *s2);
 void				free_arr(char **arr);
-void				free_list(struct s_node **stack);
-int					is_sorted(struct s_node *stack);
+void				free_list(t_node **stack);
+int					is_sorted(t_node *stack);
 int					is_valid_input(char **av_split);
 int					ft_isdigit_str(char *str);
 int					*sorting_arr(char **argv, int size);
-void				sort(struct s_node **stack_a, struct s_node **stack_b,
+void				sort(t_node **stack_a, t_node **stack_b,
 						int *sorted_arr);
-int					stack_len(struct s_node *stack);
-int					min_val(struct s_node **stack);
-int					min_idx(struct s_node **stack);
-void	sort_five_numbers(struct s_node **stack_a,
-						struct s_node **stack_b);
-void	final_hund_sort(struct s_node **stack_a,
-						struct s_node **stack_b);
-void	sort_hun_numbers(struct s_node **stack_a,
-						struct s_node **stack_b,
+int					stack_len(t_node *stack);
+int					min_val(t_node **stack);
+int					min_idx(t_node **stack);
+void	sort_five_numbers(t_node **stack_a,
+						t_node **stack_b);
+void	final_hund_sort(t_node **stack_a,
+						t_node **stack_b);
+void	sort_hun_numbers(t_node **stack_a,
+						t_node **stack_b,
 						int *sorted);
-void	sort_fivehun_numbers(struct s_node **stack_a, struct s_node **stack_b,
+void	sort_fivehun_numbers(t_node **stack_a, t_node **stack_b,
 		int *sorted);
 
 #endif
