@@ -75,14 +75,14 @@ void	sort_five_numbers(t_node **stack_a, t_node **stack_b)
 	pa(stack_b, stack_a);
 }
 
-int	get_index(int top, int *arr)
+int	get_index(int top, int *arr, int size)
 {
 	int	i;
 	int	last_index;
 
 	last_index = -1;
 	i = 0;
-	while (arr[i] != 0)
+	while (i < size)
 	{
 		if (arr[i] == top)
 			last_index = i;
@@ -145,13 +145,15 @@ void	sort_hun_numbers(t_node **stack_a, t_node **stack_b, int *sorted)
 	int	end;
 	int	top;
 	int	index;
+	int	size;
 
 	start = 0;
-	end = 15;
+	end = 19;
+	size = stack_len(*stack_a);
 	while (stack_len(*stack_a))
 	{
 		top = (*stack_a)->data;
-		index = get_index(top, sorted);
+		index = get_index(top, sorted, size);
 		if (index >= start && index <= end)
 		{
 			pb(stack_a, stack_b);
@@ -180,9 +182,9 @@ void	final_hund_sort(t_node **stack_a, t_node **stack_b)
 	{
 		max = max_value(*stack_b);
 		max_index = find_index(*stack_b, max);
-		if (*stack_b && (*stack_b)->data == max)
+		if ((*stack_b)->data == max)
 			pa(stack_b, stack_a);
-		else if (max_index >= (stack_len(*stack_b) / 2))
+		else if (max_index > (stack_len(*stack_b) / 2))
 			rrb(stack_b);
 		else
 			rb(stack_b);
@@ -195,13 +197,15 @@ void	sort_fivehun_numbers(t_node **stack_a, t_node **stack_b, int *sorted)
 	int	end;
 	int	top;
 	int	index;
+	int	size;
 
+	size = stack_len(*stack_a);
 	start = 0;
-	end = 35;
+	end = stack_len(*stack_a) * 0.0375 + 11.25;
 	while (stack_len(*stack_a))
 	{
 		top = (*stack_a)->data;
-		index = get_index(top, sorted);
+		index = get_index(top, sorted, size);
 		if (index >= start && index <= end)
 		{
 			pb(stack_a, stack_b);

@@ -27,6 +27,10 @@ int	ft_isdigit_str(char *str)
 	{
 		if ((str[i] >= '0' && str[i] <= '9') || str[i] == '+' || str[i] == '-')
 			i++;
+		// {
+		// 	if (!ft_isdigit(str[i]))
+		// 		error();
+		// }
 		else
 			return (0);
 	}
@@ -46,14 +50,12 @@ int	is_valid_input(char **av_split)
 	}
 	return (1);
 }
-
 char	**check_args(char **argv)
 {
 	char	*str;
 	char	*av;
 	char	**argvs;
 	int		i;
-	char	*tmp;
 
 	str = 0;
 	i = 0;
@@ -66,9 +68,7 @@ char	**check_args(char **argv)
 			free(av);
 			error();
 		}
-		tmp = ft_strjoin(av, " ");
-		free(av);
-		av = tmp;
+		av = ft_strjoin(av, " ");
 		str = ft_strjoin(str, av);
 		free(av);
 		i++;

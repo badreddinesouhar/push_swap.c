@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   rules_rr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsouhar <bsouhar@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 19:41:07 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/05/16 18:46:01 by bsouhar          ###   ########.fr       */
+/*   Created: 2023/03/13 10:52:40 by bsouhar           #+#    #+#             */
+/*   Updated: 2023/03/13 10:52:42 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ss(t_node **top_a, t_node **top_b)
 {
-	unsigned char	*nsrc;
-	unsigned char	*ndst;
+	sa(top_a);
+	sb(top_b);
+	ft_printf("%s\n", "ss");
+}
 
-	nsrc = (unsigned char *)src;
-	ndst = (unsigned char *)dst;
-	if (dst > src)
-		while (len--)
-			ndst[len] = nsrc[len];
-	else
-		ft_memcpy(dst, src, len);
-	return (dst);
+void	rr(t_node **top_a, t_node **top_b)
+{
+	ra(top_a);
+	rb(top_b);
+	ft_printf("%s\n", "rr");
+}
+
+void	rrr(t_node **top_a, t_node **top_b)
+{
+	rra(top_a);
+	rrb(top_b);
+	ft_printf("%s\n", "rrr");
 }
