@@ -117,7 +117,7 @@ int	is_sorted(t_node *stack)
 	tmp = stack;
 	while (tmp->next)
 	{
-		if (tmp->data < tmp->next->data)
+		if (tmp->data > tmp->next->data)
 			return (0);
 		tmp = tmp->next;
 	}

@@ -37,9 +37,7 @@ int	pop(t_node **top)
 	t_node *temp;
 
 	if (*top == NULL)
-	{
 		return (-1);
-	}
 	value = (*top)->data;
 	temp = *top;
 	*top = (*top)->next;

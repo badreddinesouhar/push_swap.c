@@ -68,62 +68,62 @@ void	sort_five_numbers(t_node **stack_a, t_node **stack_b)
 	pa(stack_b, stack_a);
 }
 
-// void	sort_hun_numbers(t_node **stack_a, t_node **stack_b, int *sorted)
-// {
-// 	int	start;
-// 	int	end;
-// 	int	top;
-// 	int	index;
-// 	int	size;
-
-// 	start = 0;
-// 	end = 19;
-// 	size = stack_len(*stack_a);
-// 	while (stack_len(*stack_a))
-// 	{
-// 		top = (*stack_a)->data;
-// 		index = get_index(top, sorted, size);
-// 		if (index >= start && index <= end)
-// 		{
-// 			pb(stack_a, stack_b);
-// 			start++;
-// 			end++;
-// 		}
-// 		else if (index > end)
-// 			ra(stack_a);
-// 		else
-// 		{
-// 			pb(stack_a, stack_b);
-// 			rb(stack_b);
-// 			start++;
-// 			end++;
-// 		}
-// 	}
-// 	final_hund_sort(stack_a, stack_b);
-// }
-
 void	sort_hun_numbers(t_node **stack_a, t_node **stack_b, int *sorted)
 {
-	int	size;
 	int	start;
 	int	end;
 	int	top;
 	int	index;
+	int	size;
 
-	size = stack_len(*stack_a);
 	start = 0;
 	end = 19;
+	size = stack_len(*stack_a);
 	while (stack_len(*stack_a))
 	{
 		top = (*stack_a)->data;
 		index = get_index(top, sorted, size);
-		if (is_within_range(index, start, end))
-			move_to_stack_b(stack_a, stack_b, start, end);
+		if (index >= start && index <= end)
+		{
+			pb(stack_a, stack_b);
+			start++;
+			end++;
+		}
+		else if (index > end)
+			ra(stack_a);
 		else
-			move_to_stack_b_and_rotate(stack_a, stack_b, start, end);
+		{
+			pb(stack_a, stack_b);
+			rb(stack_b);
+			start++;
+			end++;
+		}
 	}
 	final_hund_sort(stack_a, stack_b);
 }
+
+// void	sort_hun_numbers(t_node **stack_a, t_node **stack_b, int *sorted)
+// {
+// 	int	size;
+// 	int	start;
+// 	int	end;
+// 	int	top;
+// 	int	index;
+
+// 	size = stack_len(*stack_a);
+// 	start = 0;
+// 	end = 19;
+// 	while (stack_len(*stack_a))
+// 	{
+// 		top = (*stack_a)->data;
+// 		index = get_index(top, sorted, size);
+// 		if (is_within_range(index, start, end))
+// 			move_to_stack_b(stack_a, stack_b, start, end);
+// 		else
+// 			move_to_stack_b_and_rotate(stack_a, stack_b, start, end);
+// 	}
+// 	final_hund_sort(stack_a, stack_b);
+// }
 
 void	final_hund_sort(t_node **stack_a, t_node **stack_b)
 {
@@ -143,47 +143,13 @@ void	final_hund_sort(t_node **stack_a, t_node **stack_b)
 	}
 }
 
-// void	sort_fivehun_numbers(t_node **stack_a, t_node **stack_b, int *sorted)
-// {
-// 	int	start;
-// 	int	end;
-// 	int	top;
-// 	int	index;
-// 	int	size;
-
-// 	size = stack_len(*stack_a);
-// 	start = 0;
-// 	end = 35;
-// 	while (stack_len(*stack_a))
-// 	{
-// 		top = (*stack_a)->data;
-// 		index = get_index(top, sorted, size);
-// 		if (index >= start && index <= end)
-// 		{
-// 			pb(stack_a, stack_b);
-// 			start++;
-// 			end++;
-// 		}
-// 		else if (index > end)
-// 			ra(stack_a);
-// 		else
-// 		{
-// 			pb(stack_a, stack_b);
-// 			rb(stack_b);
-// 			start++;
-// 			end++;
-// 		}
-// 	}
-// 	final_hund_sort(stack_a, stack_b);
-// }
-
 void	sort_fivehun_numbers(t_node **stack_a, t_node **stack_b, int *sorted)
 {
-	int	size;
 	int	start;
 	int	end;
 	int	top;
 	int	index;
+	int	size;
 
 	size = stack_len(*stack_a);
 	start = 0;
@@ -192,12 +158,46 @@ void	sort_fivehun_numbers(t_node **stack_a, t_node **stack_b, int *sorted)
 	{
 		top = (*stack_a)->data;
 		index = get_index(top, sorted, size);
-		if (is_within_range(index, start, end))
-			move_to_stack_b(stack_a, stack_b, start, end);
+		if (index >= start && index <= end)
+		{
+			pb(stack_a, stack_b);
+			start++;
+			end++;
+		}
+		else if (index > end)
+			ra(stack_a);
 		else
-			move_to_stack_b_and_rotate(stack_a, stack_b, start, end);
+		{
+			pb(stack_a, stack_b);
+			rb(stack_b);
+			start++;
+			end++;
+		}
 	}
 	final_hund_sort(stack_a, stack_b);
 }
+
+// void	sort_fivehun_numbers(t_node **stack_a, t_node **stack_b, int *sorted)
+// {
+// 	int	size;
+// 	int	start;
+// 	int	end;
+// 	int	top;
+// 	int	index;
+
+// 	size = stack_len(*stack_a);
+// 	start = 0;
+// 	end = 35;
+// 	while (stack_len(*stack_a))
+// 	{
+// 		top = (*stack_a)->data;
+// 		index = get_index(top, sorted, size);
+// 		if (is_within_range(index, start, end))
+// 			move_to_stack_b(stack_a, stack_b, start, end);
+// 		else
+// 			move_to_stack_b_and_rotate(stack_a, stack_b, start, end);
+// 	}
+// 	final_hund_sort(stack_a, stack_b);
+// }
 
 // void	ft_rannge(t_node **stack_a, t_node **stack_b, int *sorted, )

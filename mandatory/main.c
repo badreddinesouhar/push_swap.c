@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	free_arr(args);
-	if (!is_sorted(stack_a))
+	if (is_sorted(stack_a))
 	{
 		free_list(&stack_a);
 		return (0);
