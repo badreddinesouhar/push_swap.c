@@ -27,10 +27,6 @@ int	ft_isdigit_str(char *str)
 	{
 		if ((str[i] >= '0' && str[i] <= '9') || str[i] == '+' || str[i] == '-')
 			i++;
-		// {
-		// 	if (!ft_isdigit(str[i]))
-		// 		error();
-		// }
 		else
 			return (0);
 	}
@@ -50,6 +46,7 @@ int	is_valid_input(char **av_split)
 	}
 	return (1);
 }
+
 char	**check_args(char **argv)
 {
 	char	*str;
@@ -57,7 +54,8 @@ char	**check_args(char **argv)
 	char	**argvs;
 	int		i;
 
-	str = 0;
+	str = malloc(1);
+	str[0] = '\0';
 	i = 0;
 	while (argv[i] != NULL)
 	{
@@ -68,8 +66,8 @@ char	**check_args(char **argv)
 			free(av);
 			error();
 		}
-		av = ft_strjoin(av, " ");
 		str = ft_strjoin(str, av);
+		str = ft_strjoin(str, " ");
 		free(av);
 		i++;
 	}
@@ -131,7 +129,7 @@ void	free_arr(char **arr)
 	int	i;
 
 	i = 0;
-	while (arr[i])
+	while (arr[i] != NULL)
 	{
 		free(arr[i]);
 		i++;

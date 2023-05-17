@@ -66,5 +66,14 @@ void	sort_hun_numbers(t_node **stack_a,
 						int *sorted);
 void	sort_fivehun_numbers(t_node **stack_a, t_node **stack_b,
 		int *sorted);
+int	find_index(t_node *stack, int value);
+t_node	*find_node(t_node *stack, int value);
+int	max_value(t_node *stack_b);
+int	get_index(int top, int *arr, int size);
+int	is_within_range(int index, int start, int end);
+void	move_to_stack_b(t_node **stack_a, t_node **stack_b, int start, int end);
+void	move_to_stack_b_and_rotate(t_node **stack_a, t_node **stack_b,
+		int start, int end);
+
 
 #endif

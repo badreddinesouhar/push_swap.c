@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
  
- CC = gcc
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRC = main.c push_swap.c rules.c rules_b.c rules_rr.c sort.c check_avs.c quicksort.c \
-	sort_utils.c
+	sort_utils.c sort_utils2.c
 OBJ = $(SRC:.c=.o)
 TARGET = push_swap
 LIBFT = lib/libft.a
@@ -29,6 +29,8 @@ $(LIBFT):
 	make -C lib all
 	make -C ft_printf all
 
+all: $(TARGET)
+
 clean:
 	rm -f $(TARGET) $(OBJ)
 	make -C lib clean
@@ -43,3 +45,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+

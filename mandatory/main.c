@@ -14,13 +14,13 @@
 
 int	main(int argc, char **argv)
 {
-	t_node *stack_a;
-	t_node *stack_b;
-	int i;
-	int j;
-	char **args;
-	char **nums;
-	int *sorted_arr;
+	t_node	*stack_a;
+	t_node	*stack_b;
+	int		i;
+	int		j;
+	char	**args;
+	char	**nums;
+	int		*sorted_arr;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -39,7 +39,8 @@ int	main(int argc, char **argv)
 		push(&stack_a, ft_atoi(nums[i]));
 		i++;
 	}
-	if (is_sorted(stack_a))
+	free_arr(args);
+	if (!is_sorted(stack_a))
 	{
 		free_list(&stack_a);
 		return (0);
@@ -47,4 +48,6 @@ int	main(int argc, char **argv)
 	sorted_arr = sorting_arr(argv + 1, argc - 1);
 	sort(&stack_a, &stack_b, sorted_arr);
 	free_list(&stack_a);
+	free(sorted_arr);
+	return (0);
 }
