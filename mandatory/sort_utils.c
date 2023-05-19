@@ -69,7 +69,7 @@ void	sort(t_node **stack_a, t_node **stack_b, int *sorted_arr)
 
 	len = stack_len(*stack_a);
 	if (len == 2)
-		sa(stack_a);
+		sa(stack_a, 1);
 	else if (len == 3)
 		sort_three_numbers(stack_a);
 	else if (len <= 5)

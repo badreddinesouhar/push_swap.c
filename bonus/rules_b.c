@@ -17,13 +17,10 @@ void	sb(t_node **top_b)
 	int	temp;
 
 	if (*top_b == NULL || (*top_b)->next == NULL)
-	{
 		return ;
-	}
 	temp = (*top_b)->data;
 	(*top_b)->data = (*top_b)->next->data;
 	(*top_b)->next->data = temp;
-	ft_printf("%s\n", "sb");
 }
 
 void	pb(t_node **top_a, t_node **top_b)
@@ -42,7 +39,6 @@ void	pb(t_node **top_a, t_node **top_b)
 		temp->next = *top_b;
 		*top_b = temp;
 	}
-	ft_printf("%s\n", "pb");
 }
 
 void	rb(t_node **top_b)
@@ -61,7 +57,6 @@ void	rb(t_node **top_b)
 	last->next = *top_b;
 	*top_b = (*top_b)->next;
 	last->next->next = NULL;
-	ft_printf("%s\n", "rb");
 }
 
 void	rrb(t_node **top_b)
@@ -83,5 +78,4 @@ void	rrb(t_node **top_b)
 	secondlast->next = NULL;
 	last->next = *top_b;
 	*top_b = last;
-	ft_printf("%s\n", "rrb");
 }

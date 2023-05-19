@@ -16,19 +16,16 @@ void	ss(t_node **top_a, t_node **top_b)
 {
 	sa(top_a);
 	sb(top_b);
-	ft_printf("%s\n", "ss");
 }
 
 void	rr(t_node **top_a, t_node **top_b)
 {
 	ra(top_a);
 	rb(top_b);
-	ft_printf("%s\n", "rr");
 }
 
 void	rrr(t_node **top_a, t_node **top_b)
 {
 	rra(top_a);
 	rrb(top_b);
-	ft_printf("%s\n", "rrr");
 }

@@ -3,19 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bsouhar <bsouhar@student.1337.ma>          +#+  +:+       +#+         #
+#    By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:29:12 by bsouhar           #+#    #+#              #
-#    Updated: 2023/03/13 09:29:16 by bsouhar          ###   ########.fr        #
+#    Updated: 2023/05/19 16:12:40 by bsouhar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
- 
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRC = main.c push_swap.c rules.c rules_b.c rules_rr.c sort.c check_avs.c quicksort.c \
-	sort_utils.c sort_utils2.c
+SRC = main.c push_swap.c rules.c rules_b.c rules_rr.c check_avs.c check_avs2.c\
+	get_next_line.c get_next_line_utils.c
 OBJ = $(SRC:.c=.o)
-TARGET = push_swap
+TARGET = checker
 LIBFT = lib/libft.a
 PRINTF = ft_printf
 

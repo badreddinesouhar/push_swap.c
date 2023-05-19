@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_utils2.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/19 15:49:57 by bsouhar           #+#    #+#             */
+/*   Updated: 2023/05/19 15:49:58 by bsouhar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	get_index(int top, int *arr, int size)
@@ -47,8 +59,8 @@ t_node	*find_node(t_node *stack, int value)
 
 int	find_index(t_node *stack, int value)
 {
-	t_node *node;
-	int index;
+	t_node	*node;
+	int		index;
 
 	node = find_node(stack, value);
 	if (node == NULL)
@@ -63,24 +75,3 @@ int	find_index(t_node *stack, int value)
 	}
 	return (index);
 }
-
-// int	is_within_range(int index, int start, int end)
-// {
-// 	return (index >= start && index <= end);
-// }
-
-// void	move_to_stack_b(t_node **stack_a, t_node **stack_b, int start, int end)
-// {
-// 	pb(stack_a, stack_b);
-// 	start++;
-// 	end++;
-// }
-
-// void	move_to_stack_b_and_rotate(t_node **stack_a, t_node **stack_b,
-// 		int start, int end)
-// {
-// 	pb(stack_a, stack_b);
-// 	rb(stack_b);
-// 	start++;
-// 	end++;
-// }

@@ -23,7 +23,6 @@ void	sa(t_node **top)
 	temp = (*top)->data;
 	(*top)->data = (*top)->next->data;
 	(*top)->next->data = temp;
-	ft_printf("%s\n", "sa");
 }
 
 void	pa(t_node **src, t_node **dst)
@@ -38,7 +37,6 @@ void	pa(t_node **src, t_node **dst)
 	*src = (*src)->next;
 	temp->next = *dst;
 	*dst = temp;
-	ft_printf("%s\n", "pa");
 }
 
 void	ra(t_node **top)
@@ -57,7 +55,6 @@ void	ra(t_node **top)
 	last->next = *top;
 	*top = (*top)->next;
 	last->next->next = NULL;
-	ft_printf("%s\n", "ra");
 }
 
 void	rra(t_node **top)
@@ -79,5 +76,4 @@ void	rra(t_node **top)
 	secondlast->next = NULL;
 	last->next = *top;
 	*top = last;
-	ft_printf("%s\n", "rra");
 }

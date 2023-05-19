@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsouhar <bsouhar@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 23:36:43 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/03/13 09:29:03 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/05/19 15:55:11 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,4 @@ void	push(t_node **top, int value)
 			temp = temp->next;
 		temp->next = newnode;
 	}
-}
-
-int	pop(t_node **top)
-{
-	int value;
-	t_node *temp;
-
-	if (*top == NULL)
-		return (-1);
-	value = (*top)->data;
-	temp = *top;
-	*top = (*top)->next;
-	free(temp);
-	return (value);
 }

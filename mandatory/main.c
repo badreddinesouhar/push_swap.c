@@ -12,42 +12,45 @@
 
 #include "push_swap.h"
 
+void	initialize(int argc, char **argv, t_data *data)
+{
+	data->stack_a = NULL;
+	data->stack_b = NULL;
+	data->i = 0;
+	data->j = 0;
+	if (argc == 1)
+		exit(0);
+	data->args = check_args(argv + 1);
+	data->nums = no_errors(data->args);
+	if (!is_valid_input(&data->nums[data->j]))
+		error();
+	while (data->nums[data->i] != NULL)
+	{
+		push(&data->stack_a, ft_atoi(data->nums[data->i]));
+		data->i++;
+	}
+	if (is_sorted(data->stack_a))
+	{
+		free_list(&data->stack_a);
+		exit(0);
+	}
+	data->sorted_arr = sorting_arr(data->nums, stack_len(data->stack_a));
+	free_arr(data->args);
+}
+
+void	execute(t_data *data)
+{
+	sort(&data->stack_a, &data->stack_b, data->sorted_arr);
+	free_list(&data->stack_a);
+	free(data->sorted_arr);
+	exit(0);
+}
+
 int	main(int argc, char **argv)
 {
-	t_node	*stack_a;
-	t_node	*stack_b;
-	int		i;
-	int		j;
-	char	**args;
-	char	**nums;
-	int		*sorted_arr;
+	t_data	data;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	i = 0;
-	j = 0;
-	if (argc == 1)
-		return (1);
-	args = check_args(argv + 1);
-	nums = no_errors(args);
-	if (!is_valid_input(&nums[j]))
-	{
-		error();
-	}
-	while (nums[i] != NULL)
-	{
-		push(&stack_a, ft_atoi(nums[i]));
-		i++;
-	}
-	free_arr(args);
-	if (is_sorted(stack_a))
-	{
-		free_list(&stack_a);
-		return (0);
-	}
-	sorted_arr = sorting_arr(argv + 1, argc - 1);
-	sort(&stack_a, &stack_b, sorted_arr);
-	free_list(&stack_a);
-	free(sorted_arr);
+	initialize(argc, argv, &data);
+	execute(&data);
 	return (0);
 }

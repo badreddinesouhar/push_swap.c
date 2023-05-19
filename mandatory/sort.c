@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsouhar <bsouhar@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:01:13 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/05/10 10:22:35 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/05/19 17:18:06 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,45 +24,40 @@ void	sort_three_numbers(t_node **top)
 	b = (*top)->next->data;
 	c = (*top)->next->next->data;
 	if (a > b && b < c && c > a)
-		sa(top);
+		sa(top, 1);
 	else if (a > b && b > c)
 	{
-		sa(top);
-		rra(top);
+		sa(top, 1);
+		rra(top, 1);
 	}
 	else if (a > b && b < c && a > c)
-		ra(top);
+		ra(top, 1);
 	else if (a < b && b > c && c > a)
 	{
-		sa(top);
-		ra(top);
+		sa(top, 1);
+		ra(top, 1);
 	}
 	else if (a < b && b > c && a > c)
-		rra(top);
+		rra(top, 1);
 }
 
 void	sort_five_numbers(t_node **stack_a, t_node **stack_b)
 {
-	int	min_index;
 	int	min;
-	int	middle;
+	int	min_index;
 
-	while (stack_len(*stack_a) > 3)
+	while (stack_len(*stack_a) != 3)
 	{
 		min = min_val(stack_a);
-		min_index = min_idx(stack_a);
-		middle = stack_len(*stack_a) / 2;
-		while ((*stack_a)->data != min)
-		{
-			if (min_index >= middle)
-				rra(stack_a);
-			else if (min_index <= middle)
-				ra(stack_a);
-		}
+		min_index = find_index(*stack_a, min);
 		if ((*stack_a)->data == min)
 			pb(stack_a, stack_b);
+		else if (min_index > stack_len(*stack_a) / 2)
+			rra(stack_a, 1);
+		else
+			ra(stack_a, 1);
 	}
-	if (is_sorted(*stack_a) <= 3)
+	if (!is_sorted(*stack_a))
 		sort_three_numbers(stack_a);
 	pa(stack_b, stack_a);
 	pa(stack_b, stack_a);
@@ -70,134 +65,22 @@ void	sort_five_numbers(t_node **stack_a, t_node **stack_b)
 
 void	sort_hun_numbers(t_node **stack_a, t_node **stack_b, int *sorted)
 {
-	int	start;
-	int	end;
-	int	top;
-	int	index;
-	int	size;
+	t_sort_info	info;
 
-	start = 0;
-	end = 19;
-	size = stack_len(*stack_a);
-	while (stack_len(*stack_a))
-	{
-		top = (*stack_a)->data;
-		index = get_index(top, sorted, size);
-		if (index >= start && index <= end)
-		{
-			pb(stack_a, stack_b);
-			start++;
-			end++;
-		}
-		else if (index > end)
-			ra(stack_a);
-		else
-		{
-			pb(stack_a, stack_b);
-			rb(stack_b);
-			start++;
-			end++;
-		}
-	}
+	info.start = 0;
+	info.end = 19;
+	info.size = stack_len(*stack_a);
+	process_stack(stack_a, stack_b, sorted, &info);
 	final_hund_sort(stack_a, stack_b);
-}
-
-// void	sort_hun_numbers(t_node **stack_a, t_node **stack_b, int *sorted)
-// {
-// 	int	size;
-// 	int	start;
-// 	int	end;
-// 	int	top;
-// 	int	index;
-
-// 	size = stack_len(*stack_a);
-// 	start = 0;
-// 	end = 19;
-// 	while (stack_len(*stack_a))
-// 	{
-// 		top = (*stack_a)->data;
-// 		index = get_index(top, sorted, size);
-// 		if (is_within_range(index, start, end))
-// 			move_to_stack_b(stack_a, stack_b, start, end);
-// 		else
-// 			move_to_stack_b_and_rotate(stack_a, stack_b, start, end);
-// 	}
-// 	final_hund_sort(stack_a, stack_b);
-// }
-
-void	final_hund_sort(t_node **stack_a, t_node **stack_b)
-{
-	int	max;
-	int	max_index;
-
-	while (stack_len(*stack_b))
-	{
-		max = max_value(*stack_b);
-		max_index = find_index(*stack_b, max);
-		if ((*stack_b)->data == max)
-			pa(stack_b, stack_a);
-		else if (max_index > (stack_len(*stack_b) / 2))
-			rrb(stack_b);
-		else
-			rb(stack_b);
-	}
 }
 
 void	sort_fivehun_numbers(t_node **stack_a, t_node **stack_b, int *sorted)
 {
-	int	start;
-	int	end;
-	int	top;
-	int	index;
-	int	size;
+	t_sort_info	info;
 
-	size = stack_len(*stack_a);
-	start = 0;
-	end = 35;
-	while (stack_len(*stack_a))
-	{
-		top = (*stack_a)->data;
-		index = get_index(top, sorted, size);
-		if (index >= start && index <= end)
-		{
-			pb(stack_a, stack_b);
-			start++;
-			end++;
-		}
-		else if (index > end)
-			ra(stack_a);
-		else
-		{
-			pb(stack_a, stack_b);
-			rb(stack_b);
-			start++;
-			end++;
-		}
-	}
+	info.start = 0;
+	info.end = 35;
+	info.size = stack_len(*stack_a);
+	process_stack(stack_a, stack_b, sorted, &info);
 	final_hund_sort(stack_a, stack_b);
 }
-
-// void	sort_fivehun_numbers(t_node **stack_a, t_node **stack_b, int *sorted)
-// {
-// 	int	size;
-// 	int	start;
-// 	int	end;
-// 	int	top;
-// 	int	index;
-
-// 	size = stack_len(*stack_a);
-// 	start = 0;
-// 	end = 35;
-// 	while (stack_len(*stack_a))
-// 	{
-// 		top = (*stack_a)->data;
-// 		index = get_index(top, sorted, size);
-// 		if (is_within_range(index, start, end))
-// 			move_to_stack_b(stack_a, stack_b, start, end);
-// 		else
-// 			move_to_stack_b_and_rotate(stack_a, stack_b, start, end);
-// 	}
-// 	final_hund_sort(stack_a, stack_b);
-// }
-
-// void	ft_rannge(t_node **stack_a, t_node **stack_b, int *sorted, )
