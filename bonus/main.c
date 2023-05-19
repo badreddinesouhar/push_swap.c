@@ -6,7 +6,7 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 09:28:12 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/05/19 16:18:23 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/05/19 17:39:33 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ void	initialize_program(t_program *program, int argc, char **argv)
 	program->stack_b = NULL;
 	program->i = 0;
 	program->j = 0;
-	if (argc < 1)
-		exit(1);
+	if (argc == 1)
+		exit(0);
 	program->args = check_args(argv + 1);
 	program->nums = no_errors(program->args);
 	if (!is_valid_input(&program->nums[program->j]))

@@ -6,14 +6,13 @@
 /*   By: bsouhar <bsouhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 09:28:29 by bsouhar           #+#    #+#             */
-/*   Updated: 2023/05/19 16:19:11 by bsouhar          ###   ########.fr       */
+/*   Updated: 2023/05/19 18:34:13 by bsouhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "ft_printf/ft_printf.h"
 # include "lib/libft.h"
 # include "get_next_line.h"
 # include <limits.h>
